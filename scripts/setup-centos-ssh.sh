@@ -20,6 +20,7 @@ done
 
 function installSSHPass {
 	yum -y install wget
+<<<<<<< HEAD
 <<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	wget http://pkgs.repoforge.org/sshpass/sshpass-1.05-1.el6.rf.i686.rpm
 	rpm -ivh sshpass-1.05-1.el6.rf.i686.rpm
@@ -27,6 +28,10 @@ function installSSHPass {
 	wget http://www6.atomicorp.com/channels/atomic/centos/6/i386/RPMS/sshpass-1.05-5.el6.art.i686.rpm
 	rpm -Uvh sshpass-1.05-5.el6.art.i686.rpm
 >>>>>>> Finally it vagrant up for all 4 nodes
+=======
+	wget http://pkgs.repoforge.org/sshpass/sshpass-1.05-1.el6.rf.i686.rpm
+	rpm -ivh sshpass-1.05-1.el6.rf.i686.rpm
+>>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	yum -y install sshpass
 }
 
@@ -52,6 +57,7 @@ function setupHosts {
 
 function createSSHKey {
 	echo "generating ssh key"
+<<<<<<< HEAD
 <<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -62,6 +68,11 @@ function createSSHKey {
 	mkdir -p RES_SSH_CONFIG
 	cp -fRp $RES_SSH_CONFIG /home/vagrant/.ssh
 >>>>>>> Finally it vagrant up for all 4 nodes
+=======
+	ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
+	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+	cp -f $RES_SSH_CONFIG ~/.ssh
+>>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 }
 
 function sshCopyId {
@@ -69,6 +80,7 @@ function sshCopyId {
 	for i in $(seq $START $TOTAL_NODES)
 	do 
 		node="node${i}"
+<<<<<<< HEAD
 <<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 		echo "copy ssh key to ${node}"
 		ssh-copy-id -i ~/.ssh/id_rsa.pub $node
@@ -77,6 +89,10 @@ function sshCopyId {
 		sudo ssh-copy-id -i /home/vagrant/.ssh/id_rsa.pub vagrant@$node
 		echo "Done ssh-copy-id"
 >>>>>>> Finally it vagrant up for all 4 nodes
+=======
+		echo "copy ssh key to ${node}"
+		ssh-copy-id -i ~/.ssh/id_rsa.pub $node
+>>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	done
 }
 

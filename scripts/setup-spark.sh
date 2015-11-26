@@ -15,21 +15,29 @@ function installRemoteSpark {
 
 function setupSpark {
 	echo "setup spark"
+<<<<<<< HEAD
 <<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	cp -f /vagrant/resources/spark/slaves /usr/local/spark/conf
 =======
 	mkdir -p /var/spark/conf/
 	cp -fRp /vagrant/resources/spark/slaves /var/spark/conf/
 >>>>>>> Finally it vagrant up for all 4 nodes
+=======
+	cp -f /vagrant/resources/spark/slaves /usr/local/spark/conf
+>>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 }
 
 function setupEnvVars {
 	echo "creating spark environment variables"
+<<<<<<< HEAD
 <<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	cp -f $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
 =======
 	cp -fRp $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
 >>>>>>> Finally it vagrant up for all 4 nodes
+=======
+	cp -f $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
+>>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 }
 
 function installSpark {
