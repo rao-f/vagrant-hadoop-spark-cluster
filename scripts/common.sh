@@ -1,26 +1,6 @@
 #!/bin/bash
 
 #java
-<<<<<<< HEAD
-<<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
-=======
->>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
-JAVA_ARCHIVE=jdk-8u25-linux-i586.tar.gz
-#hadoop
-HADOOP_PREFIX=/usr/local/hadoop
-HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
-HADOOP_VERSION=hadoop-2.6.0
-HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
-HADOOP_MIRROR_DOWNLOAD=../resources/hadoop-2.6.0.tar.gz
-HADOOP_RES_DIR=/vagrant/resources/hadoop
-#spark
-SPARK_VERSION=spark-1.1.1
-SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.4.tgz
-SPARK_MIRROR_DOWNLOAD=../resources/spark-1.1.1-bin-hadoop2.4.tgz
-SPARK_RES_DIR=/vagrant/resources/spark
-SPARK_CONF_DIR=/usr/local/spark/conf
-<<<<<<< HEAD
-=======
 JAVA_ARCHIVE=jre-8u65-linux-i586.gz
 #hadoop
 #HADOOP_PREFIX=/usr/local/hadoop/
@@ -37,9 +17,6 @@ SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.6.tgz
 SPARK_MIRROR_DOWNLOAD=../resources/spark-1.5.1-bin-hadoop2.6.tgz
 SPARK_RES_DIR=/vagrant/resources/spark/
 SPARK_CONF_DIR=/var/spark/conf/
->>>>>>> Finally it vagrant up for all 4 nodes
-=======
->>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 #ssh
 SSH_RES_DIR=/vagrant/resources/ssh
 RES_SSH_COPYID_ORIGINAL=$SSH_RES_DIR/ssh-copy-id.original

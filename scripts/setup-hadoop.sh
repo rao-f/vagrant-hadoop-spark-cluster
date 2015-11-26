@@ -10,33 +10,11 @@ function installLocalHadoop {
 function installRemoteHadoop {
 	echo "install hadoop from remote file"
 	curl -o /vagrant/resources/$HADOOP_ARCHIVE -O -L $HADOOP_MIRROR_DOWNLOAD
-<<<<<<< HEAD
-<<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
-	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local
-=======
 	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local/
->>>>>>> Finally it vagrant up for all 4 nodes
-=======
-	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local
->>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 }
 
 function setupHadoop {
 	echo "creating hadoop directories"
-<<<<<<< HEAD
-<<<<<<< e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
-=======
->>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
-	mkdir /var/hadoop
-	mkdir /var/hadoop/hadoop-datanode
-	mkdir /var/hadoop/hadoop-namenode
-	mkdir /var/hadoop/mr-history
-	mkdir /var/hadoop/mr-history/done
-	mkdir /var/hadoop/mr-history/tmp
-	
-	echo "copying over hadoop configuration files"
-<<<<<<< HEAD
-=======
 	mkdir /var/hadoop/
 	mkdir /var/hadoop/hadoop-datanode/
 	mkdir /var/hadoop/hadoop-namenode/
@@ -46,9 +24,6 @@ function setupHadoop {
 	
 	echo "copying over hadoop configuration files"
 	mkdir $HADOOP_CONF
->>>>>>> Finally it vagrant up for all 4 nodes
-=======
->>>>>>> e3357ab8c61fe3983ec3eaeffcfadb71c44b5aec
 	cp -f $HADOOP_RES_DIR/* $HADOOP_CONF
 }
 
