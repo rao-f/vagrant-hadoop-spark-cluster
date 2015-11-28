@@ -36,6 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				end
 			end
 			node.vm.provision "shell", path: "scripts/setup-java.sh"
+			node.vm.provision "shell", path: "scripts/setup-maven.sh"
 			node.vm.provision "shell", path: "scripts/setup-hadoop.sh"
 			node.vm.provision "shell" do |s|
 				s.path = "scripts/setup-hadoop-slaves.sh"

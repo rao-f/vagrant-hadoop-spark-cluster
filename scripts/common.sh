@@ -1,7 +1,9 @@
 #!/bin/bash
 
 #java
-JAVA_ARCHIVE=jre-8u65-linux-i586.gz
+JAVA_ARCHIVE=jdk-8u65-linux-i586.gz
+#maven
+MAVEN_ARCHIVE=apache-maven-3.2.1-bin.tar.gz
 #hadoop
 #HADOOP_PREFIX=/usr/local/hadoop/
 #HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop/
