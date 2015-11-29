@@ -22,7 +22,8 @@ Ideal for development cluster on a laptop with at least 4GB of memory.
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
 3. Run ```vagrant box add centos65 http://files.brianbirkinbine.com/vagrant-centos-65-i386-minimal.box```
 4. Git clone this project, and change directory (cd) into this project (directory).
-5. [Download Hadoop 2.6.2 into the /resources directory](http://apache.crihan.fr/dist/hadoop/common/stable/hadoop-2.6.0.tar.gz)
+5. [Download Hadoop 2.6.2 into the /resources directory](http://apache.mirror.gtcomm.net/hadoop/common/hadoop-2.6.2/)
+   (Here using hadoop-2.6.2.tar.gz)
 6. [Download Spark 1.1.1 into the /resources directory](http://d3kbcqa49mib13.cloudfront.net/spark-1.1.1-bin-hadoop2.4.tgz)
 7. [Download Java 1.8 into the /resources directory](http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-linux-i586.tar.gz)
    (Here using jdk-8u65-linux-i586.tar.gz)
@@ -73,24 +74,30 @@ line 32: ```ln -s /usr/local/$SPARK_VERSION-bin-hadoop2.4 /usr/local/spark```
 # 5. Post Provisioning
 After you have provisioned the cluster, you need to run some commands to initialize your Hadoop cluster. SSH into node1 using  
 ```vagrant ssh node-1```
-Commands below require root permissions. Change to root access using ```sudo su``` or create a new user and grant permissions if you want to use a non-root access. In such a case, you'll need to do this on VMs.
+in node-1:
+$[vagrant@node-1~] sudo su
+
+Commands below require root permissions. Change to root access using ```sudo su``` (password is "vagrant" for root user) or create a new user and grant permissions if you want to use a non-root access. In such a case, you'll need to do this on VMs.
 
 Issue the following command. 
 
-1. $HADOOP_PREFIX/bin/hdfs namenode -format myhadoop
+1. $[root@node-1~] $HADOOP_PREFIX/bin/hdfs namenode -format myhadoop
 
 ## Start Hadoop Daemons (HDFS + YARN)
-SSH into node1 and issue the following commands to start HDFS.
+SSH into node1 (vagrant ssh node-1) and issue the following commands to start HDFS.
 
-1. $HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-2. $HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+1. $[vagrant@node-1~] sudo $HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
+2. $[vagrant@node-1~] sudo $HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
 
-SSH into node2 and issue the following commands to start YARN.
+SSH into node2 (vagrant ssh node-2) and issue the following commands to start YARN (password is vagrant).
 
-1. $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
-2. $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
-3. $HADOOP_YARN_HOME/sbin/yarn-daemon.sh start proxyserver --config $HADOOP_CONF_DIR
-4. $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR
+1. $[vagrant@node-2~] sudo $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
+2. $[vagrant@node-2~] sudo $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
+
+After those first steps on node2, you might need to open another terminal to ssh node2 (vagrant ssh node-2) and issue the following commands
+
+3. $[vagrant@node-2~] sudo $HADOOP_YARN_HOME/sbin/yarn-daemon.sh start proxyserver --config $HADOOP_CONF_DIR
+4. $[vagrant@node-2~] sudo $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR
 
 ### Test YARN
 Run the following command to make sure you can run a MapReduce job.
