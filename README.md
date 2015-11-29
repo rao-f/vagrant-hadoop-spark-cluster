@@ -25,9 +25,12 @@ Ideal for development cluster on a laptop with at least 4GB of memory.
 5. [Download Hadoop 2.6.2 into the /resources directory](http://apache.crihan.fr/dist/hadoop/common/stable/hadoop-2.6.0.tar.gz)
 6. [Download Spark 1.1.1 into the /resources directory](http://d3kbcqa49mib13.cloudfront.net/spark-1.1.1-bin-hadoop2.4.tgz)
 7. [Download Java 1.8 into the /resources directory](http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-linux-i586.tar.gz)
-8. Run ```vagrant up``` to create the VM.
-9. Run ```vagrant ssh``` to get into your VM.
-10. Run ```vagrant destroy``` when you want to destroy and get rid of the VM.
+   (Here using jdk-8u65-linux-i586.tar.gz)
+8. [Download Maven 3.2.1 into the /resources directory] (http://archive.apache.org/dist/maven/maven-3/3.2.1/binaries/)
+   (Here using apache-maven-3.2.1-bin.tar.gz)
+9. Run ```vagrant up``` to create the VM.
+10. Run ```vagrant ssh``` to get into your VM.
+11. Run ```vagrant destroy``` when you want to destroy and get rid of the VM.
 
 
 # 4. Modifying scripts for adapting to your environment
