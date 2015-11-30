@@ -18,7 +18,7 @@ SPARK_VERSION=spark-1.5.1
 SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.6.tgz
 SPARK_MIRROR_DOWNLOAD=../resources/spark-1.5.1-bin-hadoop2.6.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
-SPARK_CONF_DIR=/var/spark/conf
+SPARK_CONF_DIR=/usr/local/spark/conf
 #ssh
 SSH_RES_DIR=/vagrant/resources/ssh
 RES_SSH_COPYID_ORIGINAL=$SSH_RES_DIR/ssh-copy-id.original

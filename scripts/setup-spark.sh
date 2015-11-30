@@ -15,13 +15,15 @@ function installRemoteSpark {
 
 function setupSpark {
 	echo "setup spark"
-	mkdir -p /var/spark/conf/
-	cp -fRp /vagrant/resources/spark/slaves /var/spark/conf/
+#	mkdir -p /var/spark/conf/
+#	cp -fRp /vagrant/resources/spark/slaves /var/spark/conf/
+    cp -f /vagrant/resources/spark/slaves /usr/local/spark/conf
 }
 
 function setupEnvVars {
 	echo "creating spark environment variables"
-	cp -fRp $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
+#	cp -fRp $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
+    cp -f $SPARK_RES_DIR/spark.sh /etc/profile.d/spark.sh
 }
 
 function installSpark {
@@ -30,7 +32,7 @@ function installSpark {
 	else
 		installRemoteSpark
 	fi
-	ln -s /usr/local/$SPARK_VERSION-bin-hadoop2.4 /usr/local/spark
+	ln -s /usr/local/$SPARK_VERSION-bin-hadoop2.6 /usr/local/spark
 }
 
 echo "setup spark"
